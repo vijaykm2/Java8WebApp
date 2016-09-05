@@ -60,20 +60,6 @@ public class LinkFinder implements Runnable{
                     handler.queueLink(l);
                 }
 
-                /*if (handler.size() >= 1500) {
-                    System.out.println("Time to visit "+handler.size()+"distinct links = " + (System.nanoTime() - t0));
-                    System.out.println("visiting links size "+ handler.visitingLinks.size());
-                    handler.removeVisiting(url);
-                    return;
-                }else {
-                    handler.removeVisiting(url);
-                    handler.addVisited(url);
-                    System.out.println("visiting links size "+ handler.visitingLinks.size() +" visited links : "+  handler.visitedLinks.size());
-                    for (String l : urls) {
-                        handler.queueLink(l);
-                    }
-                }*/
-
             } catch (Exception e) {
                 //ignore all errors for now
             }
