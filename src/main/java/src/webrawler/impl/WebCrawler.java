@@ -1,6 +1,7 @@
-package webrawler.impl;
+package src.webrawler.impl;
 
-import webrawler.LinkHandler;
+import src.webrawler.LinkHandler;
+import src.webrawler.impl.LinkFinder;
 
 import java.util.Collection;
 import java.util.Collections;

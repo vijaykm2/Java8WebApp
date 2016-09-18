@@ -1,4 +1,4 @@
-package webrawler;
+package src.webrawler;
 
 /**
  * Created by vijay on 8/18/16.

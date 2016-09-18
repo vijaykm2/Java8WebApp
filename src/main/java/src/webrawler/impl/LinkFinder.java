@@ -1,11 +1,12 @@
-package webrawler.impl;
+package src.webrawler.impl;
 
 import org.apache.commons.validator.routines.UrlValidator;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import webrawler.LinkHandler;
+import src.webrawler.LinkHandler;
+//import webrawler.impl.WebCrawler;
 
 import java.net.URL;
 import java.util.ArrayList;

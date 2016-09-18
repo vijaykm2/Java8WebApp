@@ -1,4 +1,4 @@
-package ch1;
+package src.ch1;
 
 import java.util.ArrayList;
 import java.util.List;
