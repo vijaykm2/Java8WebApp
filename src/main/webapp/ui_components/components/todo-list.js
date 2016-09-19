@@ -2,16 +2,19 @@ import React, {PropTypes} from 'react';
 import Todo from './todo';
 
 const TodoList = ({todos, onToDoClick}) => {
-    <ul>
-        {
-            todos.map(todo =>
-                key = {todo.id}
-                {...todo}
-                onClick : {() => onToDoClick(todo.id)}
-            )
-        }
-    </ul>
+  debugger;
+    return (todos && todos.length >0 ? (<ul>
+        {todos.map(todo =>
+      <Todo
+        key={todo.id}
+        {...todo}
+        onClick={() => onTodoClick(todo.id)}
+      />
+    )}
+    </ul>) : (<p> List is empty </p>));
 }
+
+
 
 TodoList.propTypes = {
     todos : PropTypes.arrayOf( PropTypes.shape({
