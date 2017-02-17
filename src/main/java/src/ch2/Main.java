@@ -35,13 +35,6 @@ public class Main {
         count = words2.filter(w -> w.length()>=10).distinct().count();
         System.out.println("count = "+count);
 
-        /*Stream<String> stream = Stream.empty();
-        Stream<Double> randoms = Stream.generate(Math::random);*/
-
-        /*randoms =randoms.filter(r -> r%5 ==0 ).limit(1);
-        Double[] rnd = (Double[]) randoms.toArray();
-        System.out.println(rnd.toString());
-*/
         Stream<String> lowerCaseWords = words.stream().map( w -> w.toLowerCase()).distinct().limit(100);
        Stream<String> sortedWords =lowerCaseWords.sorted(String::compareToIgnoreCase);
         Optional<String> val = sortedWords.filter(ds -> ds.startsWith("s")).findFirst();
