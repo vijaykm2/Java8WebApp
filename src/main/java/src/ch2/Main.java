@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
-
+import java.util.Collection;
 /**
  * Created by vijay on 9/5/16.
  */
@@ -47,6 +47,15 @@ public class Main {
         Optional<String> val = sortedWords.filter(ds -> ds.startsWith("s")).findFirst();
         System.out.println(val.get());
         System.out.println( "distinct test");
-        Stream.of("asd", "asd", "sdf", "skdks","sdf").distinct().forEach(ds -> System.out.print(ds + ' '));
+        Stream.of("sdf", "asd", "sdf", "skdks","sdf").distinct().findAny().ifPresent(ms -> System.out.println(ms));
+       Stream<List<Integer>> integerListStream = Stream.of(
+               Arrays.asList(1, 2),
+               Arrays.asList(3, 4),
+               Arrays.asList(5)
+       );
+
+       Stream<Integer> integerStream = integerListStream .flatMap(Collection::stream);
+       System.out.println( integerStream.reduce( 10, Integer:: sum));
+
     }
 }
