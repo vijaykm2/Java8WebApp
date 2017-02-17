@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
@@ -26,22 +27,26 @@ public class Main {
         }
         System.out.println("count = "+count);
 
-        count = words.parallelStream().filter( w-> w.length()>11).count();
-        System.out.println("count = "+count);
+       /* count = words.parallelStream().filter( w-> w.length()>11).count();
+        System.out.println("count = "+count);*/
 
         Stream<String> words2 = Stream.of(contents.split(" "));
 
-        count = words2.filter(w -> w.length()>10).count();
+        count = words2.filter(w -> w.length()>=10).distinct().count();
         System.out.println("count = "+count);
 
-        Stream<String> stream = Stream.empty();
-        Stream<Double> randoms = Stream.generate(Math::random);
+        /*Stream<String> stream = Stream.empty();
+        Stream<Double> randoms = Stream.generate(Math::random);*/
 
-        randoms =randoms.filter(r -> r%5 ==0 ).limit(1);
+        /*randoms =randoms.filter(r -> r%5 ==0 ).limit(1);
         Double[] rnd = (Double[]) randoms.toArray();
         System.out.println(rnd.toString());
-
-
-
+*/
+        Stream<String> lowerCaseWords = words.stream().map( w -> w.toLowerCase()).distinct().limit(100);
+       Stream<String> sortedWords =lowerCaseWords.sorted(String::compareToIgnoreCase);
+        Optional<String> val = sortedWords.filter(ds -> ds.startsWith("s")).findFirst();
+        System.out.println(val.get());
+        System.out.println( "distinct test");
+        Stream.of("asd", "asd", "sdf", "skdks","sdf").distinct().forEach(ds -> System.out.print(ds + ' '));
     }
 }
